@@ -2,11 +2,12 @@
 title: "p8105_hw1"
 author: "Dee Wang"
 date: "29/09/2021"
-output: html_document
+output: github_document
 ---
 
 
 ```{r}
+library(tidyverse)
 ```
 
 
