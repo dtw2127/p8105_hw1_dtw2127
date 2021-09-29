@@ -5,7 +5,7 @@ date: "29/09/2021"
 output: github_document
 ---
 
-Problem 1
+##Problem 1
 
 Creating vectors. 
 
@@ -45,5 +45,27 @@ as.numeric(pull(data_frame, factor_vector))
 
 ```
 After applying the as.numeric function, the trues in the logical vector are given '1' values and falses are given '0' values, so we can take the mean of logical vectors. NAs are introduced in the character vector and we are still unable to take a mean. The factor vector is able to be converted to numeric values and we can take the mean. 
+
+##Problem 2 
+
+Loading penguins dataset.
+
+```{r penguins_dataset}
+data("penguins", package = "palmerpenguins")
+
+```
+
+Let's describe the dataset. 
+
+The penguins dataset contains 8 variables: `r colnames(penguins)`. The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length in mm is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`.
+
+Next, let's create a scatterplot of flipper length (mm) vs bill length (mm) 
+
+```{r}
+library(ggplot2)
+penguins_scatter = ggplot(penguins, aes(x = flipper_length_mm, y = bill_length_mm, color = species)) + geom_point()
+
+```
+
 
 
