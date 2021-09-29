@@ -7,9 +7,9 @@ output: github_document
 
 ##Problem 1
 
-Creating vectors. 
+First, we will create some vectors
 
-```{r}
+```{r vectors}
 library(tidyverse)
 
 random_sample = rnorm(10, mean = 0, sd = 1)
@@ -20,15 +20,15 @@ factor_vector = factor(factor_vector, levels = c(-1,0,1))
 
 ```
 
-Next we will define the data frame containg random_sample, logical_vector, character_vector, factor_vector.
+Next we will define the data frame containing random_sample, logical_vector, character_vector, factor_vector.
 
-```{r}
+```{r data_frame}
 data_frame = data.frame(random_sample, logical_vector, character_vector, factor_vector)
 ```
 
-Next, we'll take the means of each variable in the dataframe.
+Next, we'll try taking the means of each variable in the dataframe.
 
-```{r}
+```{r taking_means}
 #taking means 
 mean(pull(data_frame, random_sample)) 
 mean(pull(data_frame, logical_vector)) 
@@ -36,15 +36,15 @@ mean(pull(data_frame, character_vector))
 mean(pull(data_frame, factor_vector)) 
 ```
 
-We couldn't take means of the character and factor vectors. We'll try applying the as.numeric function.
+We could take means of the random sample and logical vector, but couldn't take means of the character and factor vectors. We'll try applying the as.numeric function to try and convert character and factor vectors into numeric variables.
 
-```{r take_mean, echo = T, results = "hide"}
+```{r take_mean, echo = T}
 as.numeric(pull(data_frame, logical_vector)) 
 as.numeric(pull(data_frame, character_vector)) 
 as.numeric(pull(data_frame, factor_vector)) 
 
 ```
-After applying the as.numeric function, the trues in the logical vector are given '1' values and falses are given '0' values, so we can take the mean of logical vectors. NAs are introduced in the character vector and we are still unable to take a mean. The factor vector is able to be converted to numeric values and we can take the mean. 
+After applying the as.numeric function, the trues in the logical vector are given '1' values and falses are given '0' values, so we can take the mean of logical vectors. We are unable to convert the character vector into numeric values, instead NAs are introduced and we are still unable to take a mean. The factor vector is able to be converted to numeric values and we can take the mean. We can only take the mean of numeric values.
 
 ##Problem 2 
 
